@@ -14,7 +14,7 @@ Let little lovely girl accompany you to write notes
 
 * Q1: Do you support changing models?
 
-  A1: Support. You can go to the following website to download the model, and then put it in `/Users/terwer/Documents/mydocs/SiYuanWorkspace/public/data/plugins/siyuan-plugin-kanban-girl/models` directory, and then modify the configuration to select a new model
+  A1: Support. You can go to the following website to download the model, and then put it in `[workspace]/data/plugins/siyuan-plugin-kanban-girl/models` directory, and then modify the configuration to select a new model
 
   https://mx.paul.ren/cat/model/
 
@@ -33,6 +33,10 @@ If you approve of this project, invite me to have a cup of coffee, which will en
 <div>
 <img src="https://static-rs-terwer.oss-cn-beijing.aliyuncs.com/donate/alipay.jpg" alt="alipay" style="width:280px;height:375px;" />
 </div>
+
+## Related Projects
+
+- [waifu.js](https://github.com/Waifu-pics/waifu.js)
 
 ## Open source protocol
 

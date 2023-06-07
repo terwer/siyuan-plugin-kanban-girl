@@ -42,7 +42,6 @@ export default class KanbanGirlPlugin extends Plugin {
   async onload() {
     await this.initDependency()
     this.initUI()
-    this.logger.info("Kanban Girl is ready, haha~")
   }
 
   //================================================================

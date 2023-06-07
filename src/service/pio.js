@@ -144,19 +144,19 @@ var Paul_Pio = function (prop) {
     // 触摸
     touch: () => {
       current.canvas.onclick = () => {
-        modules.message(prop.content.touch || ["你在干什么？", "再摸我就报警了！", "HENTAI!", "不可以这样欺负我啦！"])
+        modules.message(prop.content.touch || ["你在干什么？", "再摸我就报警了！", "不可以这样欺负我啦！"])
       }
     },
     // 右侧按钮
     buttons: () => {
       // 返回首页
-      elements.home.onclick = () => {
-        location.href = current.root
-      }
-      elements.home.onmouseover = () => {
-        modules.message(prop.content.home || "点击这里回到首页！")
-      }
-      current.menu.appendChild(elements.home)
+      // elements.home.onclick = () => {
+      //   location.href = current.root
+      // }
+      // elements.home.onmouseover = () => {
+      //   modules.message(prop.content.home || "点击这里回到首页！")
+      // }
+      // current.menu.appendChild(elements.home)
 
       // 更换模型
       if (prop.model && prop.model.length > 1) {
@@ -172,24 +172,24 @@ var Paul_Pio = function (prop) {
       }
 
       // 关于我
-      elements.info.onclick = () => {
-        window.open(prop.content.link || "https://paugram.com/coding/add-poster-girl-with-plugin.html")
-      }
-      elements.info.onmouseover = () => {
-        modules.message("想了解更多关于我的信息吗？")
-      }
-      current.menu.appendChild(elements.info)
+      // elements.info.onclick = () => {
+      //   window.open(prop.content.link || "https://github.com/terwer")
+      // }
+      // elements.info.onmouseover = () => {
+      //   modules.message("想了解更多关于我的信息吗？")
+      // }
+      // current.menu.appendChild(elements.info)
 
       // 夜间模式
-      if (prop.night) {
-        elements.night.onclick = () => {
-          typeof prop.night === "function" ? prop.night() : eval(prop.night)
-        }
-        elements.night.onmouseover = () => {
-          modules.message("夜间点击这里可以保护眼睛呢")
-        }
-        current.menu.appendChild(elements.night)
-      }
+      // if (prop.night) {
+      //   elements.night.onclick = () => {
+      //     typeof prop.night === "function" ? prop.night() : eval(prop.night)
+      //   }
+      //   elements.night.onmouseover = () => {
+      //     modules.message("夜间点击这里可以保护眼睛呢")
+      //   }
+      //   current.menu.appendChild(elements.night)
+      // }
 
       // 关闭看板娘
       elements.close.onclick = () => {
@@ -201,31 +201,31 @@ var Paul_Pio = function (prop) {
       current.menu.appendChild(elements.close)
     },
     // 自定义选择器
-    custom: () => {
-      prop.content.custom.forEach((item) => {
-        const el = document.querySelectorAll(item.selector)
-
-        if (!el.length) return
-
-        for (let i = 0; i < el.length; i++) {
-          if (item.type === "read") {
-            el[i].onmouseover = (ev) => {
-              const text = ev.currentTarget.title || ev.currentTarget.innerText
-              modules.message("想阅读 %t 吗？".replace(/%t/, "“" + text + "”"))
-            }
-          } else if (item.type === "link") {
-            el[i].onmouseover = (ev) => {
-              const text = ev.currentTarget.title || ev.currentTarget.innerText
-              modules.message("想了解一下 %t 吗？".replace(/%t/, "“" + text + "”"))
-            }
-          } else if (item.text) {
-            el[i].onmouseover = () => {
-              modules.message(t.text)
-            }
-          }
-        }
-      })
-    },
+    // custom: () => {
+    //   prop.content.custom.forEach((item) => {
+    //     const el = document.querySelectorAll(item.selector)
+    //
+    //     if (!el.length) return
+    //
+    //     for (let i = 0; i < el.length; i++) {
+    //       if (item.type === "read") {
+    //         el[i].onmouseover = (ev) => {
+    //           const text = ev.currentTarget.title || ev.currentTarget.innerText
+    //           modules.message("想阅读 %t 吗？".replace(/%t/, "“" + text + "”"))
+    //         }
+    //       } else if (item.type === "link") {
+    //         el[i].onmouseover = (ev) => {
+    //           const text = ev.currentTarget.title || ev.currentTarget.innerText
+    //           modules.message("想了解一下 %t 吗？".replace(/%t/, "“" + text + "”"))
+    //         }
+    //       } else if (item.text) {
+    //         el[i].onmouseover = () => {
+    //           modules.message(t.text)
+    //         }
+    //       }
+    //     }
+    //   })
+    // },
   }
 
   /* - 运行 */

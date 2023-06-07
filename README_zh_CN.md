@@ -14,7 +14,7 @@
 
 * Q1：支持更换模型吗？
 
-  A1：支持。可以去下面的网站下载模型，然后放到 `/Users/terwer/Documents/mydocs/SiYuanWorkspace/public/data/plugins/siyuan-plugin-kanban-girl/models` 目录，然后修改配置选择新模型即可
+  A1：支持。可以去下面的网站下载模型，然后放到 `[工作空间]/data/plugins/siyuan-plugin-kanban-girl/models` 目录，然后修改配置选择新模型即可
 
   https://mx.paul.ren/cat/model/
 
@@ -33,6 +33,10 @@
 <div>
 <img src="https://static-rs-terwer.oss-cn-beijing.aliyuncs.com/donate/alipay.jpg" alt="alipay" style="width:280px;height:375px;" />
 </div>
+
+## 相关项目
+
+- [waifu.js](https://github.com/Waifu-pics/waifu.js)
 
 ## 开源协议
 
