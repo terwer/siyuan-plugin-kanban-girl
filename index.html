@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Kanban girl</title>
+    <link href="./static/pio.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="pio-container left">
+      <div class="pio-action"></div>
+      <canvas id="pio" width="280" height="250"></canvas>
+    </div>
+
+    <script src="./static/l2d.js"></script>
+    <script src="./static/pio.js"></script>
+    <script>
+      var pio = new Paul_Pio({
+        mode: "fixed",
+        hidden: true,
+        content: {
+          welcome: ["今天天气不错，一起来玩吧！"],
+          link: "https://paul.ren/about",
+          custom: [
+            {
+              selector: ".comment-form",
+              text: "欢迎参与本文评论，别发小广告噢~",
+            },
+            {
+              selector: ".home-social a:last-child",
+              text: "在这里可以了解博主的日常噢~",
+            },
+            { selector: ".post-item a", type: "read" },
+            {
+              selector: ".post-content a, .page-content a",
+              type: "link",
+            },
+          ],
+        },
+        night: "single.night()",
+        model: ["./models/pio/model.json"],
+      })
+    </script>
+  </body>
+</html>

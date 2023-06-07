@@ -1,0 +1,27 @@
+{
+  "name": "siyuan-plugin-kanban-girl",
+  "author": "terwer",
+  "url": "https://github.com/terwer/siyuan-plugin-kanban-girl",
+  "version": "0.0.1",
+  "displayName": {
+    "default": "Kanban Girl",
+    "zh_CN": "看板娘"
+  },
+  "description": {
+    "default": "Let little lovely girl accompany you to write notes",
+    "zh_CN": "让小可爱陪你写笔记吧~"
+  },
+  "readme": {
+    "default": "README.md",
+    "zh_CN": "README_zh_CN.md"
+  },
+  "i18n": [
+    "en_US",
+    "zh_CN"
+  ],
+  "funding": {
+    "custom": [
+      "https://afdian.net/a/terwer"
+    ]
+  }
+}
