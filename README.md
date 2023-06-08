@@ -2,6 +2,8 @@
 
 # siyuan-plugin-kanban-girl
 
+<img src="./icon.png" width="160" height="160" alt="icon">
+
 Let little lovely girl accompany you to write notes
 
 ## Core Features

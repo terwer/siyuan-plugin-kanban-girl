@@ -2,6 +2,8 @@
 
 # 看板娘
 
+<img src="./icon.png" width="160" height="160" alt="icon">
+
 让小可爱陪你写笔记吧~
 
 ## 核心特色
