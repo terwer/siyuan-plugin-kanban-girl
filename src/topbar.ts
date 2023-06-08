@@ -39,7 +39,7 @@ import { icons } from "./utils/svg"
 export function initTopbar(pluginInstance: KanbanGirlPlugin) {
   const topBarElement = pluginInstance.addTopBar({
     icon: icons.iconTopbar,
-    title: pluginInstance.i18n.makeSlug,
+    title: pluginInstance.i18n.kanbanGirl,
     position: "right",
     callback: () => {},
   })
@@ -57,7 +57,36 @@ export function initTopbar(pluginInstance: KanbanGirlPlugin) {
 const initMenu = async (pluginInstance: KanbanGirlPlugin, rect: DOMRect) => {
   const menu = new Menu("kanbanGirlMenu")
 
-  // 查看自定义别名
+  // 快速开关
+  let kgEnabled = true
+  const kgSwitchElement = document.createElement("span")
+  kgSwitchElement.innerHTML = `
+  <span class="font-awesome-icon kg-switch-icon">${icons.iconSwitch}</span>
+  <span class="b3-menu__label">快速开关</span>
+  <label class="switch">
+    <input style="box-sizing: border-box"  class="b3-switch fn__flex-center" type="checkbox" ${
+      kgEnabled ? "checked" : ""
+    }>      
+    <span class="slider round"></span>
+  </label>
+  `
+  const inputElement = kgSwitchElement.querySelector("input")
+  const sliderElement = kgSwitchElement.querySelector(".slider")
+
+  function toggleSwitch() {
+    kgEnabled = !kgEnabled
+    inputElement.checked = kgEnabled
+    sliderElement.classList.toggle("on", kgEnabled)
+  }
+
+  inputElement.addEventListener("click", (event) => event.stopPropagation())
+  kgSwitchElement.addEventListener("click", toggleSwitch)
+
+  menu.addItem({
+    element: kgSwitchElement,
+  })
+
+  // 设置
   menu.addSeparator()
   menu.addItem({
     iconHTML: `<span class="font-awesome-icon">${icons.iconTopbar}</span>`,

@@ -44,7 +44,7 @@
       initPio(cfg)
       pluginInstance.logger.info("Kanban Girl is ready, haha~")
     } catch (e) {
-      pluginInstance.logger.info("ao, n error occurred, please report it to terwer~~", e)
+      pluginInstance.logger.info("ao, an error occurred, please report it to terwer~~", e)
     }
   })
 </script>
