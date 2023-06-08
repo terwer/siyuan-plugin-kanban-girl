@@ -23,6 +23,10 @@
 
   https://mx.paul.ren/cat/model/
 
+## 更新历史
+
+请参考 [CHANGELOG](https://github.com/terwer/siyuan-plugin-kanban-girl/blob/main/CHANGELOG.md)
+
 ## 捐赠
 
 如果您认可这个项目，请我喝一杯咖啡吧，这将鼓励我持续更新，并创作出更多好用的工具~
