@@ -30,6 +30,7 @@
     "siyuan": "^0.7.2",
     "stylus": "^0.59.0",
     "svelte": "^3.59.1",
+    "sy-plugin-changelog": "0.0.4-patch",
     "typescript": "^5.0.4",
     "vite": "^4.3.5",
     "vite-plugin-dts": "^2.3.0",

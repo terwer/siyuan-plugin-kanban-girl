@@ -22,3 +22,4 @@
  * or visit www.terwer.space if you need additional information or have any
  * questions.
  */
+export const lute = (window as any).Lute!.New()

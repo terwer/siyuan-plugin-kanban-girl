@@ -24,6 +24,7 @@
  */
 
 import { BaseApi } from "./base-api"
+import { siyuanApiToken, siyuanApiUrl } from "../Constants"
 
 /**
  * 思源笔记服务端API v2.8.9
@@ -34,6 +35,33 @@ import { BaseApi } from "./base-api"
  * @version 0.0.1
  * @since 0.0.1
  */
-class KernelApi extends BaseApi {}
+class KernelApi extends BaseApi {
+  /**
+   * 读取文件
+   *
+   * @param path - 文件路径，例如：/data/20210808180117-6v0mkxr/20200923234011-ieuun1p.sy
+   * @param type - 类型
+   */
+  public async getFile(path: string, type: "text" | "json") {
+    const response = await fetch(`${siyuanApiUrl}/api/file/getFile`, {
+      method: "POST",
+      headers: {
+        Authorization: `Token ${siyuanApiToken}`,
+      },
+      body: JSON.stringify({
+        path: path,
+      }),
+    })
+    if (response.status === 200) {
+      if (type === "text") {
+        return await response.text()
+      }
+      if (type === "json") {
+        return await response.json()
+      }
+    }
+    return null
+  }
+}
 
 export default KernelApi
