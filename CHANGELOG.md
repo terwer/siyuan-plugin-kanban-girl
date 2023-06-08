@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/terwer/siyuan-plugin-kanban-girl/compare/v1.0.0...v1.1.0) (2023-06-08)
+
+
+### Features
+
+* 支持一些看板娘的参数配置 ([d78c050](https://github.com/terwer/siyuan-plugin-kanban-girl/commit/d78c050932c7dbd583e903b4659de869409cbeb0))
+
 ## 1.0.0 (2023-06-08)
 ### Features
 * 新增 416 模型 ([44b5f2f](https://github.com/terwer/siyuan-plugin-kanban-girl/commit/44b5f2fc6a675b07f8d434bfa793b586210af605))
