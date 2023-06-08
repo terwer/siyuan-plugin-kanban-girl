@@ -8,7 +8,10 @@ Let little lovely girl accompany you to write notes
 
 - **Lightweight and concise**: Except for live2d, this project has no other dependencies
 - **Change Model**: Supports changing models
-- **Flexible configuration**: Support configuration width, height, custom welcome words, custom links, etc.
+
+## TODO
+
+- [ ] Support flexible configuration, support configuration width, height, custom welcome words, custom links, etc.
 
 ## FAQ
 

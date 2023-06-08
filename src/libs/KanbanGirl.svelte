@@ -1,15 +1,28 @@
 <script lang="ts">
-  import Paul_Pio from "../service/pio.js"
+  import Paul_Pio from "../service/pio"
   import { onMount } from "svelte"
 
   export let pluginInstance
   let modelWidth = 320
   let modelHeight = 500
 
+  /**
+   * 初始化之后，可通过 win.kanbanGirlPio 获取模型实例
+   *
+   * @param cfg - 模型配置
+   */
   const initPio = (cfg: any) => {
-    new Paul_Pio({
+    const win = window as any
+    const pio = new Paul_Pio(cfg)
+    pio.start()
+    win.kanbanGirlPio = pio
+    pluginInstance.logger.info("window.kanbanGirlPio mounted")
+  }
+
+  onMount(async () => {
+    const cfg = {
       mode: "fixed",
-      hidden: true,
+      hidden: false,
       content: {
         welcome: ["欢迎使用思源笔记！", "今天天气不错，一起来玩吧！"],
         // link: "https://github.com/terwer",
@@ -32,20 +45,11 @@
       },
       // night: "single.night()",
       model: [
-        "/plugins/siyuan-plugin-kanban-girl/models/pio/model.json",
         "/plugins/siyuan-plugin-kanban-girl/models/416/model.json",
+        "/plugins/siyuan-plugin-kanban-girl/models/pio/model.json",
       ],
-    })
-  }
-
-  onMount(async () => {
-    try {
-      const cfg = {}
-      initPio(cfg)
-      pluginInstance.logger.info("Kanban Girl is ready, haha~")
-    } catch (e) {
-      pluginInstance.logger.info("ao, an error occurred, please report it to terwer~~", e)
     }
+    initPio(cfg)
   })
 </script>
 

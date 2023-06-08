@@ -73,13 +73,21 @@ const initMenu = async (pluginInstance: KanbanGirlPlugin, rect: DOMRect) => {
   const inputElement = kgSwitchElement.querySelector("input")
   const sliderElement = kgSwitchElement.querySelector(".slider")
 
-  function toggleSwitch() {
+  const toggleSwitch = () => {
     kgEnabled = !kgEnabled
     inputElement.checked = kgEnabled
     sliderElement.classList.toggle("on", kgEnabled)
+    switchKanbanGirl()
+  }
+  const switchKanbanGirl = () => {
+    const win = window as any
+    win.kanbanGirlPio.autoDisplay()
   }
 
-  inputElement.addEventListener("click", (event) => event.stopPropagation())
+  inputElement.addEventListener("click", (event) => {
+    event.stopPropagation()
+    switchKanbanGirl()
+  })
   kgSwitchElement.addEventListener("click", toggleSwitch)
 
   menu.addItem({
@@ -87,26 +95,26 @@ const initMenu = async (pluginInstance: KanbanGirlPlugin, rect: DOMRect) => {
   })
 
   // 设置
-  menu.addSeparator()
-  menu.addItem({
-    iconHTML: `<span class="font-awesome-icon">${icons.iconTopbar}</span>`,
-    label: pluginInstance.i18n.setting,
-    click: () => {
-      const settingId = "kanban-girl-setting"
-      const d = new Dialog({
-        title: `${pluginInstance.i18n.setting} - ${pluginInstance.i18n.kanbanGirl}`,
-        content: `<div id="${settingId}"></div>`,
-        width: pluginInstance.isMobile ? "92vw" : "720px",
-      })
-      new Setting({
-        target: document.getElementById(settingId) as HTMLElement,
-        props: {
-          pluginInstance: pluginInstance,
-          dialog: d,
-        },
-      })
-    },
-  })
+  // menu.addSeparator()
+  // menu.addItem({
+  //   iconHTML: `<span class="font-awesome-icon">${icons.iconTopbar}</span>`,
+  //   label: pluginInstance.i18n.setting,
+  //   click: () => {
+  //     const settingId = "kanban-girl-setting"
+  //     const d = new Dialog({
+  //       title: `${pluginInstance.i18n.setting} - ${pluginInstance.i18n.kanbanGirl}`,
+  //       content: `<div id="${settingId}"></div>`,
+  //       width: pluginInstance.isMobile ? "92vw" : "720px",
+  //     })
+  //     new Setting({
+  //       target: document.getElementById(settingId) as HTMLElement,
+  //       props: {
+  //         pluginInstance: pluginInstance,
+  //         dialog: d,
+  //       },
+  //     })
+  //   },
+  // })
 
   if (pluginInstance.isMobile) {
     menu.fullscreen()
