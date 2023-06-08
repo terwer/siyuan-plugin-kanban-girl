@@ -23,24 +23,29 @@
  * questions.
  */
 
-import { App, IObject, Plugin } from "siyuan"
+import { App, getFrontend, IObject, Plugin } from "siyuan"
 import { simpleLogger } from "zhi-lib-base"
 import KanbanGirl from "./libs/KanbanGirl.svelte"
 
 import "../index.styl"
 import { isDev } from "./Constants"
+import { initTopbar } from "./topbar"
 
 export default class KanbanGirlPlugin extends Plugin {
   private logger
+  public isMobile: boolean
 
   constructor(options: { app: App; id: string; name: string; i18n: IObject }) {
     super(options)
 
     this.logger = simpleLogger("index", "kanban-girl", isDev)
+    const frontEnd = getFrontend()
+    this.isMobile = frontEnd === "mobile" || frontEnd === "browser-mobile"
   }
 
   async onload() {
     await this.initDependency()
+    initTopbar(this)
     this.initUI()
   }
 
