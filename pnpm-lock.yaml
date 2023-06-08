@@ -43,6 +43,9 @@ devDependencies:
   svelte:
     specifier: ^3.59.1
     version: 3.59.1
+  sy-plugin-changelog:
+    specifier: 0.0.4-patch
+    version: 0.0.4-patch
   typescript:
     specifier: ^5.0.4
     version: 5.0.4
@@ -3302,6 +3305,10 @@ packages:
   /svelte@3.59.1:
     resolution: {integrity: sha512-pKj8fEBmqf6mq3/NfrB9SLtcJcUvjYSWyePlfCqN9gujLB25RitWK8PvFzlwim6hD/We35KbPlRteuA6rnPGcQ==}
     engines: {node: '>= 8'}
+    dev: true
+
+  /sy-plugin-changelog@0.0.4-patch:
+    resolution: {integrity: sha512-q9n5ky0A+yHiNN2tjVlbzUBwd5z0NgZRtF81S9iaXIyon1+BwOO3Vp0gyfI/Qs2PxqjJ4G4IMjxJaD9itVScVw==}
     dev: true
 
   /symbol-tree@3.2.4:

@@ -27,6 +27,7 @@ import KanbanGirlPlugin from "./index"
 import { Dialog, Menu } from "siyuan"
 import Setting from "./libs/Setting.svelte"
 import { icons } from "./utils/svg"
+import SettingManager from "./store/setting"
 
 /**
  * 顶栏按钮
@@ -57,10 +58,12 @@ export function initTopbar(pluginInstance: KanbanGirlPlugin) {
 const initMenu = async (pluginInstance: KanbanGirlPlugin, rect: DOMRect) => {
   const menu = new Menu("kanbanGirlMenu")
 
-  // 快速开关
-  let kgEnabled = true
-  const kgSwitchElement = document.createElement("span")
-  kgSwitchElement.innerHTML = `
+  // 快速开关，如果永久因此，不显示
+  const setting = await SettingManager.getSetting(pluginInstance)
+  if (!setting.hidden) {
+    let kgEnabled = !setting.hidden
+    const kgSwitchElement = document.createElement("span")
+    kgSwitchElement.innerHTML = `
   <span class="font-awesome-icon kg-switch-icon">${icons.iconSwitch}</span>
   <span class="b3-menu__label">快速开关</span>
   <label class="switch">
@@ -70,51 +73,40 @@ const initMenu = async (pluginInstance: KanbanGirlPlugin, rect: DOMRect) => {
     <span class="slider round"></span>
   </label>
   `
-  const inputElement = kgSwitchElement.querySelector("input")
-  const sliderElement = kgSwitchElement.querySelector(".slider")
+    const inputElement = kgSwitchElement.querySelector("input")
+    const sliderElement = kgSwitchElement.querySelector(".slider")
 
-  const toggleSwitch = () => {
-    kgEnabled = !kgEnabled
-    inputElement.checked = kgEnabled
-    sliderElement.classList.toggle("on", kgEnabled)
-    switchKanbanGirl()
+    const toggleSwitch = () => {
+      kgEnabled = !kgEnabled
+      inputElement.checked = kgEnabled
+      sliderElement.classList.toggle("on", kgEnabled)
+      switchKanbanGirl()
+    }
+    const switchKanbanGirl = () => {
+      const win = window as any
+      win.kanbanGirlPio.autoDisplay()
+    }
+
+    inputElement.addEventListener("click", (event) => {
+      event.stopPropagation()
+      switchKanbanGirl()
+    })
+    kgSwitchElement.addEventListener("click", toggleSwitch)
+
+    menu.addItem({
+      element: kgSwitchElement,
+    })
+    menu.addSeparator()
   }
-  const switchKanbanGirl = () => {
-    const win = window as any
-    win.kanbanGirlPio.autoDisplay()
-  }
-
-  inputElement.addEventListener("click", (event) => {
-    event.stopPropagation()
-    switchKanbanGirl()
-  })
-  kgSwitchElement.addEventListener("click", toggleSwitch)
-
-  menu.addItem({
-    element: kgSwitchElement,
-  })
 
   // 设置
-  // menu.addSeparator()
-  // menu.addItem({
-  //   iconHTML: `<span class="font-awesome-icon">${icons.iconTopbar}</span>`,
-  //   label: pluginInstance.i18n.setting,
-  //   click: () => {
-  //     const settingId = "kanban-girl-setting"
-  //     const d = new Dialog({
-  //       title: `${pluginInstance.i18n.setting} - ${pluginInstance.i18n.kanbanGirl}`,
-  //       content: `<div id="${settingId}"></div>`,
-  //       width: pluginInstance.isMobile ? "92vw" : "720px",
-  //     })
-  //     new Setting({
-  //       target: document.getElementById(settingId) as HTMLElement,
-  //       props: {
-  //         pluginInstance: pluginInstance,
-  //         dialog: d,
-  //       },
-  //     })
-  //   },
-  // })
+  menu.addItem({
+    iconHTML: `<span class="font-awesome-icon">${icons.iconTopbar}</span>`,
+    label: pluginInstance.i18n.setting,
+    click: () => {
+      showSetting(pluginInstance)
+    },
+  })
 
   if (pluginInstance.isMobile) {
     menu.fullscreen()
@@ -125,4 +117,20 @@ const initMenu = async (pluginInstance: KanbanGirlPlugin, rect: DOMRect) => {
       isLeft: true,
     })
   }
+}
+
+export const showSetting = (pluginInstance: KanbanGirlPlugin) => {
+  const settingId = "kanban-girl-setting"
+  const d = new Dialog({
+    title: `${pluginInstance.i18n.setting} - ${pluginInstance.i18n.kanbanGirl}`,
+    content: `<div id="${settingId}"></div>`,
+    width: pluginInstance.isMobile ? "92vw" : "720px",
+  })
+  new Setting({
+    target: document.getElementById(settingId) as HTMLElement,
+    props: {
+      pluginInstance: pluginInstance,
+      dialog: d,
+    },
+  })
 }

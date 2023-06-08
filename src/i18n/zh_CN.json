@@ -1,4 +1,8 @@
 {
   "kanbanGirl": "看板娘",
-  "setting": "设置"
+  "setting": "设置",
+  "ChangeLog": {
+    "name": "更新日志",
+    "file": "CHANGELOG_zh_CN"
+  }
 }
