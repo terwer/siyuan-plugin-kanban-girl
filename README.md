@@ -23,6 +23,10 @@ Let little lovely girl accompany you to write notes
 
   https://mx.paul.ren/cat/model/
 
+## Changelog
+
+Please check [CHANGELOG](https://github.com/terwer/siyuan-plugin-kanban-girl/blob/main/CHANGELOG.md)
+
 ## Donate
 
 If you approve of this project, invite me to have a cup of coffee, which will encourage me to keep updating and create more useful tools~
