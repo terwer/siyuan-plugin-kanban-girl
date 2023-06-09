@@ -70,7 +70,7 @@
   <label class="fn__flex b3-label config__item">
     <div class="fn__flex-1">
       看板娘位置
-      <div class="b3-label__text">该设置决定看办理显示的位置</div>
+      <div class="b3-label__text">该设置决定看板娘显示的位置</div>
     </div>
     <span class="fn__space" />
     <select class="b3-select fn__flex-center fn__size200" bind:value={position} on:change={handlePositionChange}>
