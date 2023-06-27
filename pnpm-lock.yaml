@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -26,8 +26,8 @@ devDependencies:
     specifier: ^3.2.12
     version: 3.2.12
   jsdom:
-    specifier: ^22.0.0
-    version: 22.0.0
+    specifier: ^22.1.0
+    version: 22.1.0
   minimist:
     specifier: ^1.2.8
     version: 1.2.8
@@ -66,7 +66,7 @@ devDependencies:
     version: 4.2.0(typescript@5.0.4)(vite@4.3.5)
   vitest:
     specifier: ^0.32.0
-    version: 0.32.0(jsdom@22.0.0)(stylus@0.59.0)
+    version: 0.32.0(jsdom@22.1.0)(stylus@0.59.0)
 
 packages:
 
@@ -2312,8 +2312,8 @@ packages:
       argparse: 2.0.1
     dev: true
 
-  /jsdom@22.0.0:
-    resolution: {integrity: sha512-p5ZTEb5h+O+iU02t0GfEjAnkdYPrQSkfuTSMkMYyIoMvUNEHsbG0bHHbfXIcfTqD2UfvjQX7mmgiFsyRwGscVw==}
+  /jsdom@22.1.0:
+    resolution: {integrity: sha512-/9AVW7xNbsBv6GfWho4TTNjEo9fe6Zhf9O7s0Fhhr3u+awPwAJMKwAMXnkk5vBxflqLW9hTHX/0cs+P3gW+cQw==}
     engines: {node: '>=16'}
     peerDependencies:
       canvas: ^2.5.0
@@ -3662,7 +3662,7 @@ packages:
       vite: 4.3.5(@types/node@20.2.5)(stylus@0.59.0)
     dev: true
 
-  /vitest@0.32.0(jsdom@22.0.0)(stylus@0.59.0):
+  /vitest@0.32.0(jsdom@22.1.0)(stylus@0.59.0):
     resolution: {integrity: sha512-SW83o629gCqnV3BqBnTxhB10DAwzwEx3z+rqYZESehUB+eWsJxwcBQx7CKy0otuGMJTYh7qCVuUX23HkftGl/Q==}
     engines: {node: '>=v14.18.0'}
     hasBin: true
@@ -3707,7 +3707,7 @@ packages:
       chai: 4.3.7
       concordance: 5.0.4
       debug: 4.3.4
-      jsdom: 22.0.0
+      jsdom: 22.1.0
       local-pkg: 0.4.3
       magic-string: 0.30.0
       pathe: 1.1.1
