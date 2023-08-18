@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -56,8 +56,8 @@ devDependencies:
     specifier: ^2.3.0
     version: 2.3.0(vite@4.3.5)
   vite-plugin-node-polyfills:
-    specifier: ^0.8.2
-    version: 0.8.2(vite@4.3.5)
+    specifier: ^0.11.2
+    version: 0.11.2(vite@4.3.5)
   vite-plugin-static-copy:
     specifier: ^0.16.0
     version: 0.16.0(vite@4.3.5)
@@ -1186,6 +1186,13 @@ packages:
 
   /buffer@5.7.1:
     resolution: {integrity: sha512-EHcyIPBQ4BSGlvjB16k5KgAJ27CIsHY/2JBmCRReo48y9rQ3MaUzWX3KVlBa4U7MyX02HdVj0K7C3WaB3ju7FQ==}
+    dependencies:
+      base64-js: 1.5.1
+      ieee754: 1.2.1
+    dev: true
+
+  /buffer@6.0.3:
+    resolution: {integrity: sha512-FTiCpNxtwiZZHEZbcbTIcZjERVICn9yq/pDFkTl95/AxzD1naBctN7YO68riM/gLSDY7sdrMby8hofADYuuqOA==}
     dependencies:
       base64-js: 1.5.1
       ieee754: 1.2.1
@@ -3575,13 +3582,15 @@ packages:
       - supports-color
     dev: true
 
-  /vite-plugin-node-polyfills@0.8.2(vite@4.3.5):
-    resolution: {integrity: sha512-amOUVWwNvcuKxfWM9vpS8sAqvew28KXyR597OHO7BXWJFxr+QX4qB3XTDhWoRivj89TIZe4JTJTZwBHtIJ3ygQ==}
+  /vite-plugin-node-polyfills@0.11.2(vite@4.3.5):
+    resolution: {integrity: sha512-KaMZ5Pgi5dT7Br21upTWNgkgyBPBBGHl9gQcv6fPfUa73v10mRgi88Rh7aLauvmdyqsLBmhJmRBbI9dmbVG9sA==}
     peerDependencies:
       vite: ^2.0.0 || ^3.0.0 || ^4.0.0
     dependencies:
       '@rollup/plugin-inject': 5.0.3
+      buffer-polyfill: /buffer@6.0.3
       node-stdlib-browser: 1.2.0
+      process-polyfill: /process@0.11.10
       vite: 4.3.5(@types/node@20.2.5)(stylus@0.59.0)
     transitivePeerDependencies:
       - rollup
